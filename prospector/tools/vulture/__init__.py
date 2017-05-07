@@ -27,15 +27,11 @@ class ProspectorVulture(Vulture):
                 ))
                 continue
             self.file = module
-<<<<<<< HEAD
             self.filename = module
             try:
                 self.scan(module_string, filename=module)
             except TypeError:
                 self.scan(module_string)
-=======
-            self.scan(module_string, self.file)
->>>>>>> vulture: Update for 0.9+ API
 
     def get_messages(self):
         all_items = (
@@ -48,15 +44,11 @@ class ProspectorVulture(Vulture):
         vulture_messages = []
         for code, template, items in all_items:
             for item in items:
-<<<<<<< HEAD
                 try:
                     filename = item.file
                 except AttributeError:
                     filename = item.filename
                 loc = Location(filename, None, None, item.lineno, -1)
-=======
-                loc = Location(item.filename, None, None, item.lineno, -1)
->>>>>>> vulture: Update for 0.9+ API
                 message_text = template % item
                 message = Message('vulture', code, loc, message_text)
                 vulture_messages.append(message)
