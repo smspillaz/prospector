@@ -49,6 +49,7 @@ class Pep257Tool(ToolBase):
                 for error in checker.check_source(
                     read_py_file(code_file),
                     code_file,
+                    None
                 ):
 
                     location = Location(
